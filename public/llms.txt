@@ -1,0 +1,13 @@
+# Smart Irrigation Design & Consulting
+
+> Hyderabad irrigation experts for landscaping, drip irrigation, sprinkler systems, automation, fountains and sustainable water management.
+
+Smart Irrigation Design & Consulting provides irrigation survey, hydraulic design, supply, installation, commissioning, repairs and annual maintenance across Hyderabad, Telangana and South India.
+
+## Pages
+
+- [Home](/): Irrigation expertise, featured services and company experience.
+- [Irrigation Services](/services): Landscaping irrigation, drip systems, sprinklers, smart controllers, rainwater harvesting, fountains and AMC.
+- [Projects](/projects): Selected irrigation project experience since 2017.
+- [About](/about): Company story and engineering approach.
+- [Contact](/contact): Hyderabad office, phone, WhatsApp and enquiry information.

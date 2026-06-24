@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://smartirrigations21.lovable.app/sitemap.xml
