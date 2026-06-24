@@ -1,13 +1,13 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ArrowLeft, ArrowRight, Check, Droplets, Gauge, MapPin, MessageCircle } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { InquiryBand, SiteLayout } from "@/components/site-layout";
 import heroImage from "@/assets/irrigation-hero.jpg";
 import dripImage from "@/assets/drip-irrigation.jpg";
 import waterImage from "@/assets/water-feature.jpg";
 import rainImage from "@/assets/rainwater-harvesting.jpg";
-import productLogos from "@/assets/product-logos.png.asset.json";
+import productLogosSrc from "@/assets/product-logos.svg";
 
 const showcaseSlides = [
   {
@@ -72,7 +72,7 @@ function Index() {
               <p className="sr-only">Featured brands: Rain Bird, AQVA STAR, XeriTech, ARMAS, Kasco, Supreme, Varios, ItalFog, PIMTAS and Wilo.</p>
             </div>
             <div className="bg-background p-6 sm:p-10 border border-border">
-              <img src={productLogos.url} width={1200} height={500} loading="lazy" alt="Product brand logos used by Smart Irrigation" className="w-full" />
+              <img src={productLogosSrc} width={1200} height={500} loading="lazy" alt="Product brand logos used by Smart Irrigation" className="w-full" />
             </div>
           </div>
         </div>
@@ -89,11 +89,19 @@ function Proof({ value, label }: { value: string; label: string }) { return <div
 
 function WorkShowcase() {
   const [active, setActive] = useState(0);
+  const sectionRef = useRef<HTMLElement>(null);
   useEffect(() => {
-    const timer = window.setInterval(() => setActive((current) => (current + 1) % showcaseSlides.length), 5500);
-    return () => window.clearInterval(timer);
+    const el = sectionRef.current;
+    if (!el) return;
+    let visible = true;
+    const observer = new IntersectionObserver(([entry]) => { visible = entry.isIntersecting; }, { threshold: 0.3 });
+    observer.observe(el);
+    const timer = window.setInterval(() => {
+      if (visible) setActive((current) => (current + 1) % showcaseSlides.length);
+    }, 5500);
+    return () => { window.clearInterval(timer); observer.disconnect(); };
   }, []);
   const slide = showcaseSlides[active];
 
-  return <section className="bg-primary px-5 py-20 text-primary-foreground sm:px-8 sm:py-28" aria-label="Company work and testimonials"><div className="mx-auto max-w-7xl"><div className="mb-10 flex flex-col justify-between gap-6 sm:flex-row sm:items-end"><div><p className="text-[10px] font-bold uppercase tracking-[0.3em] text-accent">Work & testimonials</p><h2 className="mt-5 max-w-2xl text-3xl font-semibold sm:text-5xl">Recent projects across irrigation and water management.</h2></div><div className="flex gap-2"><Button variant="outline" size="icon" className="rounded-none border-primary-foreground/30 bg-transparent text-primary-foreground hover:bg-primary-foreground/10" onClick={() => setActive((active - 1 + showcaseSlides.length) % showcaseSlides.length)} aria-label="Previous showcase"><ArrowLeft /></Button><Button variant="outline" size="icon" className="rounded-none border-primary-foreground/30 bg-transparent text-primary-foreground hover:bg-primary-foreground/10" onClick={() => setActive((active + 1) % showcaseSlides.length)} aria-label="Next showcase"><ArrowRight /></Button></div></div><div className="grid overflow-hidden border border-primary-foreground/15 lg:grid-cols-[1.15fr_0.85fr]"><img key={slide.image} src={slide.image} width={1024} height={1024} loading="lazy" alt={slide.alt} className="aspect-[4/3] size-full object-cover lg:aspect-auto" /><div className="flex min-h-80 flex-col justify-between bg-primary/80 p-8 sm:p-12"><div><p className="text-[10px] font-bold uppercase tracking-[0.2em] text-accent">{slide.label}</p><h3 className="mt-5 text-2xl font-semibold sm:text-4xl">{slide.title}</h3><p className="mt-5 max-w-lg leading-8 text-primary-foreground/85">{slide.text}</p></div><Button asChild size="lg" className="mt-9 w-fit rounded-none bg-accent text-accent-foreground hover:bg-accent/90"><a href="https://wa.me/919494230489?text=Hello%20Smart%20Irrigation%2C%20I%20would%20like%20to%20discuss%20a%20project." target="_blank" rel="noreferrer"><MessageCircle /> Discuss on WhatsApp</a></Button></div></div><div className="mt-5 flex gap-2" aria-label="Showcase slide selection">{showcaseSlides.map((item, index) => <Button key={item.label} variant="ghost" size="sm" onClick={() => setActive(index)} className={`h-1 min-w-10 rounded-none p-0 ${index === active ? "bg-accent hover:bg-accent" : "bg-primary-foreground/20 hover:bg-primary-foreground/35"}`} aria-label={`Show slide ${index + 1}`} aria-current={index === active ? "true" : undefined} />)}</div></div></section>;
+  return <section ref={sectionRef} className="bg-primary px-5 py-20 text-primary-foreground sm:px-8 sm:py-28" aria-label="Company work and testimonials"><div className="mx-auto max-w-7xl"><div className="mb-10 flex flex-col justify-between gap-6 sm:flex-row sm:items-end"><div><p className="text-[10px] font-bold uppercase tracking-[0.3em] text-accent">Work & testimonials</p><h2 className="mt-5 max-w-2xl text-3xl font-semibold sm:text-5xl">Recent projects across irrigation and water management.</h2></div><div className="flex gap-2"><Button variant="outline" size="icon" className="rounded-none border-primary-foreground/30 bg-transparent text-primary-foreground hover:bg-primary-foreground/10" onClick={() => setActive((active - 1 + showcaseSlides.length) % showcaseSlides.length)} aria-label="Previous showcase"><ArrowLeft /></Button><Button variant="outline" size="icon" className="rounded-none border-primary-foreground/30 bg-transparent text-primary-foreground hover:bg-primary-foreground/10" onClick={() => setActive((active + 1) % showcaseSlides.length)} aria-label="Next showcase"><ArrowRight /></Button></div></div><div className="grid overflow-hidden border border-primary-foreground/15 lg:grid-cols-[1.15fr_0.85fr]"><img key={slide.image} src={slide.image} width={1024} height={1024} loading="lazy" alt={slide.alt} className="aspect-[4/3] size-full object-cover lg:aspect-auto" /><div className="flex min-h-80 flex-col justify-between bg-primary/80 p-8 sm:p-12"><div><p className="text-[10px] font-bold uppercase tracking-[0.2em] text-accent">{slide.label}</p><h3 className="mt-5 text-2xl font-semibold sm:text-4xl">{slide.title}</h3><p className="mt-5 max-w-lg leading-8 text-primary-foreground/85">{slide.text}</p></div><Button asChild size="lg" className="mt-9 w-fit rounded-none bg-accent text-accent-foreground hover:bg-accent/90"><a href="https://wa.me/919494230489?text=Hello%20Smart%20Irrigation%2C%20I%20would%20like%20to%20discuss%20a%20project." target="_blank" rel="noreferrer"><MessageCircle /> Discuss on WhatsApp</a></Button></div></div><div className="mt-5 flex gap-2" aria-label="Showcase slide selection">{showcaseSlides.map((item, index) => <Button key={item.label} variant="ghost" size="sm" onClick={() => setActive(index)} className={`h-1 min-w-10 rounded-none p-0 ${index === active ? "bg-accent hover:bg-accent" : "bg-primary-foreground/20 hover:bg-primary-foreground/35"}`} aria-label={`Show slide ${index + 1}`} aria-current={index === active ? "true" : undefined} />)}</div></div></section>;
 }

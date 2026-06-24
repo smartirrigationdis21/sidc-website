@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1124 248" fill="none">
+  <rect width="1124" height="248" fill="#f8f5f0"/>
+  <text x="40" y="110" font-family="Georgia, serif" font-size="28" font-weight="700" fill="#2e7d32">SMART IRRIGATION</text>
+  <text x="40" y="145" font-family="Arial, sans-serif" font-size="13" font-weight="600" fill="#6d4c41" letter-spacing="3">DESIGN &amp; CONSULTING</text>
+  <text x="40" y="185" font-family="Arial, sans-serif" font-size="10" fill="#6d4c41" letter-spacing="2">IRRIGATION EXPERT · HYDERABAD · EST. 2017</text>
+  <line x1="40" y1="200" x2="400" y2="200" stroke="#c8e6c9" stroke-width="2"/>
+  <circle cx="1070" cy="80" r="50" fill="#e8f5e9"/>
+  <path d="M1050 90 Q1070 55 1090 90 Q1070 75 1050 90Z" fill="#2e7d32"/>
+  <path d="M1055 100 Q1070 70 1085 100 Q1070 88 1055 100Z" fill="#4caf50"/>
+  <path d="M1062 112 Q1070 90 1078 112 Q1070 102 1062 112Z" fill="#81c784"/>
+</svg>

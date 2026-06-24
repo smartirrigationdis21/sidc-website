@@ -2,7 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { Menu, Phone, X } from "lucide-react";
 import { useState, type ReactNode } from "react";
 import { Button } from "@/components/ui/button";
-import logoAsset from "@/assets/smart-irrigation-logo.png.asset.json";
+import logoSrc from "@/assets/smart-irrigation-logo.svg";
 
 const navItems = [
   { to: "/services", label: "Services" },
@@ -18,7 +18,7 @@ export function SiteLayout({ children }: { children: ReactNode }) {
       <header className="sticky top-0 z-50 border-b border-primary/10 bg-background/95 backdrop-blur-lg">
         <div className="mx-auto grid h-20 max-w-7xl grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-5 sm:px-8">
           <Link to="/" className="flex min-w-0 items-center" onClick={() => setOpen(false)} aria-label="Smart Irrigation home">
-            <img src={logoAsset.url} width={1124} height={248} alt="Smart Irrigation Design & Consulting" className="h-auto w-48 max-w-full sm:w-60" />
+            <img src={logoSrc} width={1124} height={248} alt="Smart Irrigation Design & Consulting" className="h-auto w-48 max-w-full sm:w-60" />
           </Link>
           <nav className="hidden items-center gap-7 lg:flex" aria-label="Main navigation">
             {navItems.map((item) => <Link key={item.to} to={item.to} className="text-xs font-bold uppercase tracking-[0.14em] text-foreground/85 transition-colors hover:text-primary" activeProps={{ className: "text-primary" }}>{item.label}</Link>)}
