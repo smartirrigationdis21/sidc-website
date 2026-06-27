@@ -40,7 +40,7 @@ export function SiteLayout({ children }: { children: ReactNode }) {
       </footer>
       <div className="fixed inset-x-4 bottom-4 z-40 grid grid-cols-2 gap-2 lg:hidden">
         <Button asChild size="lg" className="h-12 rounded-none shadow-xl"><a href="tel:+919494230489">Call</a></Button>
-        <Button asChild size="lg" className="h-12 rounded-none bg-secondary text-secondary-foreground shadow-xl hover:bg-secondary/90"><a href="https://wa.me/919494230489" target="_blank" rel="noreferrer">WhatsApp</a></Button>
+        <Button asChild size="lg" className="h-12 rounded-none bg-secondary text-secondary-foreground shadow-xl hover:bg-secondary/90"><a href="https://wa.me/919494230489?text=Hi%2C%20I%20have%20an%20enquiry%20about%20the%20services" target="_blank" rel="noreferrer">WhatsApp</a></Button>
       </div>
     </div>
   );
@@ -51,5 +51,5 @@ export function PageHero({ eyebrow, title, intro }: { eyebrow: string; title: st
 }
 
 export function InquiryBand() {
-  return <section className="bg-secondary px-5 py-20 text-secondary-foreground sm:px-8"><div className="mx-auto max-w-4xl text-center"><p className="text-[10px] font-bold uppercase tracking-[0.3em] text-accent-foreground">Plan your system</p><h2 className="mt-5 text-3xl font-semibold sm:text-5xl">Ready to use every drop intelligently?</h2><p className="mx-auto mt-6 max-w-2xl text-secondary-foreground/85">Speak with K. Santharam about site analysis, system design, installation or maintenance.</p><div className="mt-9 flex flex-wrap justify-center gap-3"><Button asChild size="lg" className="h-12 rounded-none bg-accent text-accent-foreground hover:bg-accent/90"><a href="tel:+919494230489">+91 94942 30489</a></Button><Button asChild variant="outline" size="lg" className="h-12 rounded-none border-secondary-foreground/30 bg-transparent text-secondary-foreground hover:bg-secondary-foreground/10"><a href="https://wa.me/919494230489" target="_blank" rel="noreferrer">WhatsApp inquiry</a></Button></div></div></section>;
+  return <section className="bg-secondary px-5 py-20 text-secondary-foreground sm:px-8"><div className="mx-auto max-w-4xl text-center"><p className="text-[10px] font-bold uppercase tracking-[0.3em] text-accent-foreground">Plan your system</p><h2 className="mt-5 text-3xl font-semibold sm:text-5xl">Ready to use every drop intelligently?</h2><p className="mx-auto mt-6 max-w-2xl text-secondary-foreground/85">Speak with K. Santharam about site analysis, system design, installation or maintenance.</p><div className="mt-9 flex flex-wrap justify-center gap-3"><Button asChild size="lg" className="h-12 rounded-none bg-accent text-accent-foreground hover:bg-accent/90"><a href="tel:+919494230489">+91 94942 30489</a></Button><Button asChild variant="outline" size="lg" className="h-12 rounded-none border-secondary-foreground/30 bg-transparent text-secondary-foreground hover:bg-secondary-foreground/10"><a href="https://wa.me/919494230489?text=Hi%2C%20I%20have%20an%20enquiry%20about%20the%20services" target="_blank" rel="noreferrer">WhatsApp inquiry</a></Button></div></div></section>;
 }
