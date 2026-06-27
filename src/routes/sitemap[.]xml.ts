@@ -1,7 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import type {} from "@tanstack/react-start";
-
-const BASE_URL = "https://smartirrigations21.lovable.app";
+import { getSiteUrl } from "@/lib/site-url";
 
 const entries = [
   { path: "/", priority: "1.0" },
@@ -23,6 +22,8 @@ export const Route = createFileRoute("/sitemap.xml")({
           `    <priority>${priority}</priority>`,
           "  </url>",
         ].join("\n"));
+
+        const BASE_URL = getSiteUrl();
 
         return new Response([
           '<?xml version="1.0" encoding="UTF-8"?>',

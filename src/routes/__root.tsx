@@ -11,6 +11,8 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import { absoluteUrl } from "@/lib/site-url";
+import { OG_IMAGE } from "@/lib/seo";
 
 function NotFoundComponent() {
   return (
@@ -82,12 +84,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "author", content: "Smart Irrigation Design & Consulting" },
       { property: "og:title", content: "Irrigation Expert Hyderabad | Smart Irrigation" },
       { property: "og:description", content: "Hyderabad irrigation expert for drip, sprinkler, landscaping, rainwater harvesting, fountains and smart irrigation systems." },
+      { property: "og:url", content: absoluteUrl("/") },
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
+      { property: "og:image", content: OG_IMAGE },
+      { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "Irrigation Expert Hyderabad | Smart Irrigation" },
       { name: "twitter:description", content: "Hyderabad irrigation expert for drip, sprinkler, landscaping, rainwater harvesting, fountains and smart irrigation systems." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/c4099e5a-e767-406a-8317-40790c6e9e19/id-preview-28313d94--f3b8bddf-ae2e-43ea-a9bb-c0a339dedda2.lovable.app-1781547533631.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/c4099e5a-e767-406a-8317-40790c6e9e19/id-preview-28313d94--f3b8bddf-ae2e-43ea-a9bb-c0a339dedda2.lovable.app-1781547533631.png" },
+      { name: "twitter:image", content: OG_IMAGE },
     ],
     links: [
       {

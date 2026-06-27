@@ -3,11 +3,13 @@ import { ArrowLeft, ArrowRight, Check, Droplets, Gauge, MapPin, MessageCircle } 
 import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { InquiryBand, SiteLayout } from "@/components/site-layout";
+import { absoluteUrl } from "@/lib/site-url";
+import { OG_IMAGE } from "@/lib/seo";
 import heroImage from "@/assets/irrigation-hero.jpg";
-import dripImage from "@/assets/drip-irrigation.png";
-import waterImage from "@/assets/water-feature.png";
-import rainImage from "@/assets/rainwater-harvesting.png";
-import productLogosSrc from "@/assets/product-logos.png";
+import dripImage from "@/assets/drip-irrigation.jpg";
+import waterImage from "@/assets/water-feature.jpg";
+import rainImage from "@/assets/rainwater-harvesting.jpg";
+import productLogosSrc from "@/assets/product-logos.jpg";
 
 const showcaseSlides = [
   {
@@ -39,9 +41,15 @@ export const Route = createFileRoute("/")({
       { name: "description", content: "Irrigation expert for smart drip, sprinkler, fountain and water management systems in Hyderabad and South India." },
       { property: "og:title", content: "Irrigation Expert | Smart Irrigation" },
       { property: "og:description", content: "Intelligent irrigation engineering for healthier landscapes and lower water use." },
-      { property: "og:url", content: "/" },
+      { property: "og:url", content: absoluteUrl("/") },
+      { property: "og:image", content: OG_IMAGE },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Irrigation Expert | Smart Irrigation" },
+      { name: "twitter:description", content: "Intelligent irrigation engineering for healthier landscapes and lower water use." },
+      { name: "twitter:image", content: OG_IMAGE },
     ],
-    links: [{ rel: "canonical", href: "/" }],
+    links: [{ rel: "canonical", href: absoluteUrl("/") }],
   }),
   component: Index,
 });

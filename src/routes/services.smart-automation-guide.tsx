@@ -1,8 +1,10 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { CheckCircle2, Cloud, Droplets, Gauge, Leaf, Radio, Smartphone, Wifi } from "lucide-react";
 import { InquiryBand, PageHero, SiteLayout } from "@/components/site-layout";
+import { absoluteUrl } from "@/lib/site-url";
+import { OG_IMAGE } from "@/lib/seo";
 
-const PAGE_URL = "https://smartirrigations21.lovable.app/services/smart-automation-guide";
+const PAGE_URL = absoluteUrl("/services/smart-automation-guide");
 const TITLE = "Smart Irrigation Controller & Moisture Sensor Guide";
 const DESCRIPTION = "A practical guide to smart irrigation controllers, WiFi timers like Rain Bird and Rachio, and moisture sensors that cut water bills.";
 
@@ -14,9 +16,12 @@ export const Route = createFileRoute("/services/smart-automation-guide")({
       { property: "og:title", content: TITLE },
       { property: "og:description", content: DESCRIPTION },
       { property: "og:url", content: PAGE_URL },
+      { property: "og:image", content: OG_IMAGE },
       { property: "og:type", content: "article" },
+      { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: TITLE },
       { name: "twitter:description", content: DESCRIPTION },
+      { name: "twitter:image", content: OG_IMAGE },
     ],
     links: [{ rel: "canonical", href: PAGE_URL }],
     scripts: [
