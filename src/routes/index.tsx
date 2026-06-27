@@ -4,9 +4,9 @@ import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { InquiryBand, SiteLayout } from "@/components/site-layout";
 import heroImage from "@/assets/irrigation-hero.jpg";
-import dripImage from "@/assets/drip-irrigation.jpg";
-import waterImage from "@/assets/water-feature.jpg";
-import rainImage from "@/assets/rainwater-harvesting.jpg";
+import dripImage from "@/assets/drip-irrigation.png";
+import waterImage from "@/assets/water-feature.png";
+import rainImage from "@/assets/rainwater-harvesting.png";
 import productLogosSrc from "@/assets/product-logos.png";
 
 const showcaseSlides = [
